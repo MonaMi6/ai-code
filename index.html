@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Uploader and Camera Capture</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Photo Manager</h1>
+
+    <div class="container">
+        <div class="controls">
+            <input type="file" id="fileUpload" accept="image/*" style="display: none;">
+            <button id="uploadButton">Upload Photo</button>
+            <button id="cameraButton">Take Photo</button>
+        </div>
+
+        <div class="media-display">
+            <video id="cameraFeed" autoplay playsinline style="display: none;"></video>
+            <canvas id="photoCanvas" style="display: none;"></canvas>
+            <img id="displayedImage" src="#" alt="Uploaded or Captured Photo" style="display: none;">
+        </div>
+
+        <div class="capture-control">
+            <button id="captureButton" style="display: none;">Capture Photo</button>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
