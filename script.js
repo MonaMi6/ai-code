@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const IMGUR_API_KEY = 'b9916da09c29c84948d2b8336eea2250';
     const imageUrlContainer = document.getElementById('imageUrlContainer');
-    const imageUrlField = document.getElementById('imageUrlField');
+
+    const imageUrlLink = document.getElementById('imageUrlLink');
+
     const uploadButton = document.getElementById('uploadButton');
     const fileUpload = document.getElementById('fileUpload');
     const cameraButton = document.getElementById('cameraButton');
@@ -82,7 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function uploadImageToBackend(imageDataUrl) {
         // Reset and hide the URL field initially
-        imageUrlField.value = '';
+
+        imageUrlLink.href = '#';
+        imageUrlLink.textContent = '';
+
         imageUrlContainer.style.display = 'none';
 
         const base64ImageData = imageDataUrl.split(',')[1]; // Get Base64 part
@@ -117,7 +122,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const result = await response.json();
 
             if (result.success && result.data && result.data.url) {
-                imageUrlField.value = result.data.url;
+
+                imageUrlLink.href = result.data.url;
+                imageUrlLink.textContent = result.data.url;
+
                 imageUrlContainer.style.display = 'block';
             } else {
                 console.error('API response error:', result);
