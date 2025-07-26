@@ -102,7 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('image', base64ImageData);
 
         try {
-            const response = await fetch('https://api.imgbb.com/1/upload', {
+            const backendUrl = document.getElementById('backendUrl').value;
+            const uploadUrl = backendUrl || 'https://api.imgbb.com/1/upload';
+
+            const response = await fetch(uploadUrl, {
                 method: 'POST',
                 body: formData,
             });

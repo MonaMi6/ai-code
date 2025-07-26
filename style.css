@@ -20,6 +20,16 @@ h1 {
     text-align: center;
 }
 
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#backendUrl {
+    margin-bottom: 10px;
+}
+
 .controls button {
     background-color: #007bff;
     color: white;
